@@ -205,13 +205,13 @@ dword_result_t XGetGameRegion() { return xeXGetGameRegion(); }
 DECLARE_XAM_EXPORT1(XGetGameRegion, kNone, kStub);
 
 dword_result_t XGetLanguage() {
-  auto desired_language = XLanguage::kEnglish;
+  auto desired_language = XLanguage::kFrench;
 
   // Switch the language based on game region.
   // TODO(benvanik): pull from xex header.
   uint32_t game_region = XEX_REGION_NTSCU;
   if (game_region & XEX_REGION_NTSCU) {
-    desired_language = XLanguage::kEnglish;
+    desired_language = XLanguage::kFrench;
   } else if (game_region & XEX_REGION_NTSCJ) {
     desired_language = XLanguage::kJapanese;
   }
