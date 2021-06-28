@@ -20,11 +20,9 @@ namespace kernel {
 namespace xam {
 
 UserProfile::UserProfile() {
-  // NeoGeo Battle Coliseum checks the user XUID against a mask of
-  // 0x00C0000000000000 (3<<54), if non-zero, it prevents the user from playing
-  // the game.
-  // "You do not have permissions to perform this operation."
-  xuid_ = 0xB13EBABEBABEBABE;
+  // Write XUID with 0xE as it indicates the profile is offline.
+  // https://github.com/hetelek/Velocity/blob/master/XboxInternals/Account/Account.cpp#L77
+  xuid_ = 0xE000000004CE0DB0;
   name_ = "Bigdemon";
 
   // https://cs.rin.ru/forum/viewtopic.php?f=38&t=60668&hilit=gfwl+live&start=195
