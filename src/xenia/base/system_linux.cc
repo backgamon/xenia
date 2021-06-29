@@ -18,11 +18,16 @@
 
 namespace xe {
 
-void LaunchWebBrowser(const std::string& url) {
-  auto cmd = "xdg-open " + url;
+void LaunchWebBrowser(const std::string_view url) {
+  auto cmd = std::string("xdg-open ");
+  cmd.append(url);
   system(cmd.c_str());
 }
 
 void LaunchFileExplorer(const std::filesystem::path& path) { assert_always(); }
+
+void ShowSimpleMessageBox(SimpleMessageBoxType type, std::string_view message) {
+  assert_always();
+}
 
 }  // namespace xe
